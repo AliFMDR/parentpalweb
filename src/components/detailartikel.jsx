@@ -1,6 +1,6 @@
 import tumbimg1 from "../images/Thumbartikel1.png";
 import tumbimg2 from "../images/Thumbartikel2.png";
-import tumbimg3 from "../images/thumb3.png";
+import tumbimg3 from "../images/Thumb3.png";
 import promoimg from "../images/promosi.png";
 import potofileimg from "../images/profil.png";
 import Navbar from "./navbar";
