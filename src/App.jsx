@@ -1,6 +1,6 @@
 import Hubungikami from "./pages/Hubungikami";
 import Detailartikel from "./components/detailartikel";
-import Edukasi from "./pages/edukasi";
+import Edukasi from "./pages/Edukasi";
 import Home from "./pages/Home";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Aplikasi from "./pages/Aplikasi";
