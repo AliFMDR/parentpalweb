@@ -1,6 +1,6 @@
-import tumbimg1 from "../images/thumbartikel1.png";
-import tumbimg2 from "../images/thumbartikel2.png";
-import tumbimg3 from "../images/thumb3.png";
+import tumbimg1 from "../images/Thumbartikel1.png";
+import tumbimg2 from "../images/Thumbartikel2.png";
+import tumbimg3 from "../images/Thumb3.png";
 import ilustrasiimg from "../images/ilustrasibulat.png";
 import ilustrasipromosi from "..//images/ilustrasipromote.png";
 import { useState, useEffect } from "react";

@@ -6,17 +6,14 @@ import rightImage from "../images/right.png";
 import berandaIcon from "../images/beranda.png";
 import konsultasiIcon from "../images/konsultasi.png";
 import edukasiIcon from "../images/edukasi.png";
-
 import webinarIcon from "../images/webinar.png";
 import logaktivitasIcon from "../images/log-aktivitas.png";
 import pengaturanIcon from "../images/pengaturan.png";
 import chatIcon from "../images/chat.png";
 import logoutIcon from "../images/logout.png";
 import FormInput from "./upload";
-
 import Kominutas from "./kominutas";
 import Editprofil from "./editprofil";
-
 import WebinarForm from "./webinar";
 import LogAktivitas from "./logaktivitas";
 import { auth } from "../firebaseconfig";
