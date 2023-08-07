@@ -8,7 +8,7 @@ import card2Img from "../images/card2.png";
 import card3Img from "../images/card3.png";
 import bgcard1Img from "../images/bg-card1.png";
 import bgcard2Img from "../images/bg-card2.png";
-
+import { useEffect, useState } from "react";
 const cardContainerStyle1 = {
   display: "flex",
   flexDirection: "row",
@@ -43,6 +43,20 @@ const jumlahartikelupload = 12;
 
 const DashboardPsikolog = (props) => {
   const { user } = props;
+  const [time, setTime] = useState(new Date());
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTime(new Date());
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const formatTime = (time) => {
+    return time.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", second: "2-digit" });
+  };
+
   return (
     <div className="dashboard-container">
       <div
@@ -53,8 +67,11 @@ const DashboardPsikolog = (props) => {
           padding: "20px",
         }}
       >
-        <div className="header" style={{ color: "#FFFFFF" }}>
+        <div className="header" style={{ color: "#FFFFFF", display: "flex", justifyContent: "space-between" }}>
           <h1>Dashboard / Utama</h1>
+          <div className="text-4xl text-white font-bold bg-[#07294A]" style={{ display: "inline-block" }}>
+            {formatTime(time)}
+          </div>
         </div>
         <div className="welcome-message">
           <p style={{ color: "#FFFFFF", fontSize: "35px", fontWeight: "bold" }}>Selamat Datang Kembali, {user}!</p>

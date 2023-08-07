@@ -15,10 +15,13 @@ const Promosi = () => {
           <h1 className="text-7xl mt-36 ml-16 font-medium">
             Ingin Tahu Apa Aja <span className=" text-sky-500">Fitur</span> <span className=" text-blue-700">ParentPal</span>?
           </h1>
-          <p className="ml-16 mt-10 font-normal text-2xl">
-            Aplikasi ParentPal hadir untuk memudahkan perjalanan Orangtua. Dengan fitur-fitur interaktif dan konten yang bermanfaat, ParentPal akan membantu Anda menghadapi tantangan sehari-hari dalam mendidik dan merawat buah hati Anda.
-            Dapatkan saran dari para ahli, temukan aktivitas seru untuk keluarga, dan jalin koneksi dengan komunitas orangtua lainnya.
-          </p>
+          <div className="ml-16 mt-10 font-normal text-2xl">
+            <p>
+              <span className="text-blue-700 font-bold">Aplikasi ParentPal</span> hadir untuk memudahkan perjalanan Orangtua. Dengan <span className="text-blue-500">fitur-fitur interaktif</span> dan{" "}
+              <span className="text-blue-500">konten</span> yang <span className="text-blue-500">bermanfaat</span>, ParentPal akan membantu Anda menghadapi tantangan sehari-hari dalam mendidik dan merawat buah hati Anda. Dapatkan saran dari
+              para <span className="text-blue-700 font-bold">ahli</span>, temukan aktivitas seru untuk keluarga, dan jalin koneksi dengan <span className="text-blue-700 font-bold">komunitas orangtua</span> lainnya.
+            </p>
+          </div>
         </div>
         <div>
           <img src={heroimg} alt="Ilustrasi " />

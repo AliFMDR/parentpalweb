@@ -20,6 +20,7 @@ import { auth } from "../firebaseconfig";
 import { signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import DashboardPsikolog from "./beranda";
+import CardContainer from "./card";
 
 const Sidebar = () => {
   const [selectedMenu, setSelectedMenu] = useState("beranda");
@@ -188,6 +189,7 @@ const Sidebar = () => {
             {selectedMenu === "Pusat Bantuan" && (
               <div>
                 <h1>Pusat Bantuan</h1>
+                <CardContainer />
                 {/* Tambahkan elemen HTML atau komponen React lainnya sesuai kebutuhan */}
               </div>
             )}

@@ -118,69 +118,70 @@ const FormInput = () => {
   };
 
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-bold mb-4">Input Artikel</h1>
-      {/* <FileInputGambar /> */}
-      <form onSubmit={handleSubmit}>
-        {/* <div className="mb-4">
+    <div className="container  mx-auto p-4 ">
+      <div className="container  mx-auto p-4 bg-gray-300 rounded-xl">
+        <h1 className="text-3xl font-bold mb-4">Input Artikel</h1>
+        {/* <FileInputGambar /> */}
+        <form onSubmit={handleSubmit}>
+          {/* <div className="mb-4">
           <label htmlFor="image" className="block text-lg font-medium mb-1">
             Gambar
           </label>
           <input type="file" id="image" accept="image/*" onChange={handleInputChange} value={formValues.gambar} className="border border-gray-300 rounded p-2 w-full" />
         </div> */}
-        <div>
-          <p className="block text-lg font-medium mb-2">Thumbnail</p>
-          <input
-            type="file"
-            onChange={(event) => {
-              setImageUpload(event.target.files[0]);
-            }}
-          />
-        </div>
+          <div>
+            <p className="block text-lg font-medium mb-2">Thumbnail</p>
+            <input
+              type="file"
+              onChange={(event) => {
+                setImageUpload(event.target.files[0]);
+              }}
+            />
+          </div>
 
-        <div className="mt-5">
-          <select value={selectedOption} onChange={handleOptionChange} className="p-2 rounded border border-gray-300">
-            <option value="">Pilih Kategori</option>
-            {options.map((option) => (
-              <option key={option.value} value={option.value}>
-                {option.label}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div className="mt-5">
-          <select value={selectedUsia} onChange={handleUsiaChange} className="p-2 rounded border border-gray-300">
-            <option value="">Masukkan Kategori Usia</option>
-            {usia.map((option) => (
-              <option key={option.value} value={option.value}>
-                {option.label}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div className="mb-4">
-          <label htmlFor="judul" className="block text-lg font-medium mb-1 mt-5">
-            Title
-          </label>
-          <input type="text" id="judul" ref={judulRef} className="border border-gray-300 rounded p-2 w-full" />
-        </div>
+          <div className="mt-5">
+            <select value={selectedOption} onChange={handleOptionChange} className="p-2 rounded border border-gray-300">
+              <option value="">Pilih Kategori</option>
+              {options.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className="mt-5">
+            <select value={selectedUsia} onChange={handleUsiaChange} className="p-2 rounded border border-gray-300">
+              <option value="">Masukkan Kategori Usia</option>
+              {usia.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className="mb-4">
+            <label htmlFor="judul" className="block text-lg font-medium mb-1 mt-5">
+              Title
+            </label>
+            <input type="text" id="judul" ref={judulRef} className="border border-gray-300 rounded p-2 w-full" />
+          </div>
 
-        <div className="mb-4">
-          <label htmlFor="text" className="block text-lg font-medium mb-1">
-            Teks
-          </label>
-          <Editor
-            apiKey="3dbc4siucidpab7ck2y78qpnb6px0uuwef8lsy0db579zylu"
-            onInit={(evt, editor) => (editorRef.current = editor)}
-            initialValue="<p>This is the initial content of the editor.</p>"
-            init={{
-              height: 500,
-              menubar: false,
-              plugins: ["advlist", "autolink", "lists", "link", "image", "charmap", "preview", "anchor", "searchreplace", "visualblocks", "code", "fullscreen", "insertdatetime", "media", "table", "image code", "help", "wordcount"],
-              toolbar: "undo redo | blocks | " + "bold italic forecolor | alignleft aligncenter " + "alignright alignjustify | bullist numlist outdent indent | " + "removeformat | help image code",
-              content_style: "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
-              images_upload_url: storage.upload,
-              /*images_upload_handler: async (blobInfo, success) => {
+          <div className="mb-4">
+            <label htmlFor="text" className="block text-lg font-medium mb-1">
+              Teks
+            </label>
+            <Editor
+              apiKey="3dbc4siucidpab7ck2y78qpnb6px0uuwef8lsy0db579zylu"
+              onInit={(evt, editor) => (editorRef.current = editor)}
+              initialValue="<p>This is the initial content of the editor.</p>"
+              init={{
+                height: 500,
+                menubar: false,
+                plugins: ["advlist", "autolink", "lists", "link", "image", "charmap", "preview", "anchor", "searchreplace", "visualblocks", "code", "fullscreen", "insertdatetime", "media", "table", "image code", "help", "wordcount"],
+                toolbar: "undo redo | blocks | " + "bold italic forecolor | alignleft aligncenter " + "alignright alignjustify | bullist numlist outdent indent | " + "removeformat | help image code",
+                content_style: "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
+                images_upload_url: storage.upload,
+                /*images_upload_handler: async (blobInfo, success) => {
                 try {
                   const uploadTask = await uploadString(ref(storage, `images/${Date.now()}_${Math.floor(Math.random() * 100000)}.png`), blobInfo.base64(), "data_url");
                   const downloadUrl = await getDownloadURL(uploadTask.ref);
@@ -189,13 +190,14 @@ const FormInput = () => {
                   console.log("Error uploading file:", error);
                 }
               },*/
-            }}
-          />
-        </div>
-        <button type="submit" className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded">
-          Submit
-        </button>
-      </form>
+              }}
+            />
+          </div>
+          <button type="submit" className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded">
+            Submit
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

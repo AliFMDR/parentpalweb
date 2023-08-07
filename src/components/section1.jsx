@@ -13,8 +13,9 @@ const Section1 = () => {
             Menyediakan <span className=" text-sky-500">Sarana</span> Terbaik untuk Para <span className=" text-blue-700">Orangtua</span>
           </h1>
           <p className="ml-16 mt-10 font-normal text-2xl">
-            Peran sebagai orangtua tidaklah mudah. Oleh karena itu, aplikasi ParentPal hadir untuk memudahkan perjalanan Orangtua. Dengan fitur-fitur interaktif dan konten yang bermanfaat, ParentPal akan membantu Anda menghadapi tantangan
-            sehari-hari dalam mendidik dan merawat buah hati Anda. Dapatkan saran dari Psikologi ahli, temukan aktivitas seru untuk keluarga, dan jalin koneksi dengan komunitas orangtua lainnya.
+            Peran sebagai orangtua tidaklah mudah. Oleh karena itu, aplikasi <span className="text-blue-500 font-bold">ParentPal</span> hadir untuk memudahkan perjalanan <span className="text-blue-500">Orangtua</span>. Dengan{" "}
+            <span className="text-blue-700">fitur-fitur interaktif</span> dan konten yang bermanfaat, ParentPal akan membantu Anda menghadapi tantangan sehari-hari dalam mendidik dan merawat buah hati Anda. Dapatkan saran dari{" "}
+            <span className="text-blue-700 font-bold">Psikologi ahli</span>, temukan aktivitas seru untuk keluarga, dan jalin koneksi dengan komunitas orangtua lainnya.
           </p>
         </div>
         <div>

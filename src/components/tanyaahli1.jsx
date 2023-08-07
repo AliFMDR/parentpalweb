@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import rightImg from "../images/icon-right.png";
 import moreImg from "../images/more.png";
 import searchImg from "../images/icon-search.png";
@@ -12,10 +12,11 @@ const TanyaAhli = () => {
   const [isSearchClicked, setIsSearchClicked] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedQuestion, setSelectedQuestion] = useState(null);
+  const [isAnswering, setIsAnswering] = useState(false);
   const [answerText, setAnswerText] = useState("");
-  const [showModal, setShowModal] = useState(false);
 
   const questions = [
+    // Data pertanyaan...
     {
       id: 1,
       akun: "JohnDoe",
@@ -86,17 +87,10 @@ const TanyaAhli = () => {
     setAnswerText("");
 
     if (question.status === "Belum Terjawab") {
-      setShowModal(true);
+      setIsAnswering(true);
     } else {
-      setShowModal(false);
+      setIsAnswering(false);
     }
-  };
-
-  const handleEditAnswerClick = (questionId) => {
-    const question = questions.find((q) => q.id === questionId);
-    setSelectedQuestion(question);
-    setAnswerText(question.jawaban);
-    setShowModal(true);
   };
 
   const handleAnswerChange = (event) => {
@@ -128,9 +122,15 @@ const TanyaAhli = () => {
       return question;
     });
 
+    setQuestions(updatedQuestions);
     setFilteredQuestions(updatedFilteredQuestions);
     setSelectedQuestion(null);
     setAnswerText("");
+    setIsAnswering(false);
+  };
+
+  const handleCancelAnswer = () => {
+    setIsAnswering(false);
   };
 
   const filterQuestions = () => {
@@ -165,6 +165,7 @@ const TanyaAhli = () => {
         </h1>
       </div>
       <table className="table" style={{ backgroundColor: "#ffffff", marginBottom: "10px", margin: "auto", width: "1000px", height: "50px", borderRadius: "10px", padding: "20px auto" }}>
+        {/* Table Head */}
         <thead>
           <tr>
             <td colSpan="4">
@@ -196,10 +197,10 @@ const TanyaAhli = () => {
                   />
                   <style>
                     {`
-                    .search-input::placeholder {
-                      color: #6C757E;
-                      padding-left: 30px;
-                    }
+                      .search-input::placeholder {
+                        color: #6C757E;
+                        padding-left: 30px;
+                      }
                     `}
                   </style>
                   <button type="submit" className="search-button" onClick={handleSearchSubmit} style={{ position: "absolute", top: "50%", left: "180px", transform: "translateY(-50%)", width: "15px", height: "15px" }}>
@@ -315,10 +316,10 @@ const TanyaAhli = () => {
                     )}
                     <style>
                       {`
-                    .action-container:hover .dropdown-content {
-                      display: block;
-                    }
-                    `}
+                        .action-container:hover .dropdown-content {
+                          display: block;
+                        }
+                      `}
                     </style>
                   </div>
                 ) : (
@@ -332,7 +333,7 @@ const TanyaAhli = () => {
         </tbody>
       </table>
 
-      {selectedQuestion && showModal && (
+      {selectedQuestion && isAnswering && (
         <div className="modal" style={{ display: "flex", alignItems: "center", justifyContent: "center", position: "fixed", top: "0", left: "0", width: "100%", height: "100%", backgroundColor: "rgba(0, 0, 0, 0.5)" }}>
           <div className="modal-content" style={{ backgroundColor: "white", width: "400px", padding: "20px", borderRadius: "4px", position: "relative", transform: "translate(-50%, -50%)", top: "50%", left: "50%" }}>
             <div className="question-header">
@@ -363,7 +364,7 @@ const TanyaAhli = () => {
               <button type="submit" className="submit-button">
                 Kirim
               </button>
-              <button onClick={() => setShowModal(false)} className="back-button">
+              <button onClick={handleCancelAnswer} className="back-button">
                 Kembali
               </button>
             </form>
