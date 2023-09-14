@@ -55,8 +55,6 @@ const FormInput = () => {
     }
     const validationErrors = validateForm();
     if (Object.keys(validationErrors).length === 0) {
-      // Submit form
-
       const content = editorRef.current.getContent();
       const docu = new DOMParser().parseFromString(content, "text/html");
       const imgElements = docu.querySelectorAll("img");
@@ -91,13 +89,6 @@ const FormInput = () => {
 
       judulRef.current.value = "";
       setErrors({});
-
-      /*const storageRef = ref(storage, `images/${Date.now()}_${Math.floor(Math.random() * 100000)}.png`);
-      const downloadUrl = await getDownloadURL(storageRef);
-      const updatedContent = 
-      await updateDoc(doc(db, "artikel", judulRef.current.value),{
-
-      });*/
     } else {
       setErrors(validationErrors);
     }
@@ -105,14 +96,6 @@ const FormInput = () => {
 
   const validateForm = () => {
     const errors = {};
-
-    // if (!formValues.title.trim()) {
-    //   errors.title = "gambar harus di isi";
-    // }
-
-    // if (!formValues.text.trim()) {
-    //   errors.text = "isi artikel nya";
-    // }
 
     return errors;
   };
@@ -123,12 +106,6 @@ const FormInput = () => {
         <h1 className="text-3xl font-bold mb-4">Input Artikel</h1>
         {/* <FileInputGambar /> */}
         <form onSubmit={handleSubmit}>
-          {/* <div className="mb-4">
-          <label htmlFor="image" className="block text-lg font-medium mb-1">
-            Gambar
-          </label>
-          <input type="file" id="image" accept="image/*" onChange={handleInputChange} value={formValues.gambar} className="border border-gray-300 rounded p-2 w-full" />
-        </div> */}
           <div>
             <p className="block text-lg font-medium mb-2">Thumbnail</p>
             <input
@@ -181,15 +158,6 @@ const FormInput = () => {
                 toolbar: "undo redo | blocks | " + "bold italic forecolor | alignleft aligncenter " + "alignright alignjustify | bullist numlist outdent indent | " + "removeformat | help image code",
                 content_style: "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
                 images_upload_url: storage.upload,
-                /*images_upload_handler: async (blobInfo, success) => {
-                try {
-                  const uploadTask = await uploadString(ref(storage, `images/${Date.now()}_${Math.floor(Math.random() * 100000)}.png`), blobInfo.base64(), "data_url");
-                  const downloadUrl = await getDownloadURL(uploadTask.ref);
-                  success(downloadUrl);
-                } catch (error) {
-                  console.log("Error uploading file:", error);
-                }
-              },*/
               }}
             />
           </div>
